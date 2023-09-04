@@ -1,0 +1,34 @@
+<h2 class="display-2">Empreste um livro: </h2>
+<hr>
+<form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="form-group mb-3">
+        <label class="form-label" for="leitor">Leitor:</label>
+        <select [(ngModel)]="selectedLeitor" id="leitor" name="leitor" required class="form-control" #leitor="ngModel">
+            <option value="">Selecione o leitor</option>
+            <option *ngFor="let leitor of leitores" [value]="leitor._id">
+                {{leitor.nome}}
+            </option>
+        </select>
+        <div class="text-danger" *ngIf="leitor.invalid && (leitor.dirty || leitor.touched)">
+            <div *ngIf="leitor.errors?.['required']"><small><b>*</b> Leitor é obrigatório.</small></div>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label" for="livro">Livro:</label>
+        <select id="livro" name="livro" required class="form-control" [(ngModel)]="selectedLivro" #livro="ngModel">
+            <option value="">Selecione o livro</option>
+            <option *ngFor="let livro of livros" [value]="livro._id">
+                {{livro.nome}}
+            </option>
+        </select>
+        <div class="text-danger" *ngIf="livro.invalid && (livro.dirty || livro.touched)">
+            <div *ngIf="livro.errors?.['required']"><small><b>*</b> Livro é obrigatório.</small></div>
+        </div>
+    </div>
+    
+        <input class="btn btn-success mt-3" type="submit" value="Emprestar" [disabled]="!form.valid">
+        <button class="btn btn-success mt-3" type="button" (click)="goBack()">Voltar</button>
+</form>
+<div *ngIf="emprestado">
+    Livro {{emprestado.nome}} alugado com sucesso, faltam {{emprestado.estoque}} cópias
+</div>

@@ -1,0 +1,11 @@
+<h2 class="display-2">Livros</h2>
+<hr>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let livro of livros">
+    <a routerLink="/detailLivro/{{livro._id}}">
+      {{livro.nome}}
+    </a>
+    <button type="button" class="btn btn-primary" (click)="deleteLivro(livro)">Apagar</button>
+  </li>
+</ul>
+

@@ -1,0 +1,25 @@
+<div class="container">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">AC2-Parte2</a>
+      <div class="navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="livros" routerLinkActive="active">Lista de Livros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="createLivro" routerLinkActive="active">Cadastre um novo livro</a>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="leitores" routerLinkActive="active">Lista de Leitores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="createLeitor" routerLinkActive="active">Cadastre um novo leitor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="me_empresta" routerLinkActive="active">Empreste um livro</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <router-outlet></router-outlet>
+  </div>

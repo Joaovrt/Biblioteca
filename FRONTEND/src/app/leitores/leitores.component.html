@@ -1,0 +1,10 @@
+<h2 class="display-2">Leitores</h2>
+<hr>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let leitor of leitores">
+    <a routerLink="/detailLeitor/{{leitor._id}}">
+      {{leitor.nome}}
+    </a>
+    <button type="button" class="btn btn-primary" (click)="deleteLeitor(leitor)">Apagar</button>
+  </li>
+</ul>
